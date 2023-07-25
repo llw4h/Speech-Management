@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Speech Management System</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h1>Speech Management System</h1>
+  <hr>
+  <h2>Add Speech</h2>
+
+  <form action="#" th:action="@{/save}" th:object="${speech}"
+        method="POST">
+    <input type="text" th:field="*{subject}" placeholder="Subject"
+             class="form-control mb-4 col-4" required>
+    <input type="text" th:field="*{author}" placeholder="Author"
+             class="form-control mb-4 col-4" required>
+    <input type="date" th:field="*{speechDate}" placeholder="Date (yyyy-mm-dd)"
+             class="form-control mb-4 col-4" pattern="\d{4}-\d{2}-\d{2}" required>
+    <textarea rows="10" cols="45" th:field="*{speechText}" placeholder="Type speech here..."
+              class="form-control mb-4 col-12" required></textarea>
+
+    <button type="submit" class="btn btn-primary btn-sm mb-5">Add</button>
+  </form>
+
+  <hr>
+
+  <a th:href="@{/}">Back</a>
+</div>
+</body>
+</html>
